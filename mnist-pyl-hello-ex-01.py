@@ -23,10 +23,7 @@ parser.add_argument('--data_dir', default=f"{os.getcwd()}/mnist", type=str)  # s
 parser.add_argument('--tb_dir', default="TB", type=str)
 parser.add_argument('--tb_name', default="MNINST/ex_01", type=str)
 
-if __name__ == "__main__.py":    
-    args = parser.parse_args()      
-else:
-    args = parser.parse_args("")    # take defaults in Jupyter 
+args = parser.parse_args()      
 
 class MNISTModel(pl.LightningModule):
 
@@ -47,7 +44,9 @@ class MNISTModel(pl.LightningModule):
 
 print(os.getcwd())
 import os
+print(args)
 os.system('df -kH')
+os.system(f"ls {args.data_dir}")
 # Init our model
 mnist_model = MNISTModel()
 
