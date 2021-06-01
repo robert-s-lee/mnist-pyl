@@ -1,4 +1,4 @@
 *.swp
-MNIST/*
+data/*
 TB/*
 .DS_Store
