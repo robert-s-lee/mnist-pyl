@@ -19,7 +19,7 @@ parser.add_argument('--gpu', default=0, type=int)
 parser.add_argument('--lr', default=0.02, type=float)
 
 parser.add_argument('--batch_size', default=64, type=int)
-parser.add_argument('--data_dir', default=os.getcwd(), type=str)    # should be datastore
+parser.add_argument('--data_dir', default=f"{os.getcwd()}/mnist", type=str)  # should be datastore
 parser.add_argument('--tb_dir', default="TB", type=str)
 parser.add_argument('--tb_name', default="MNINST/ex_01", type=str)
 
