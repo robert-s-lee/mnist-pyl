@@ -20,6 +20,11 @@ from pytorch_lightning.loggers import TensorBoardLogger
 
 # %%
 from argparse import ArgumentParser
+from IPython import get_ipython
+
+def is_running_from_ipython():
+    return get_ipython() is not None
+
 import __main__ as main
 
 parser = ArgumentParser()
@@ -33,7 +38,8 @@ parser.add_argument('--data_dir', default=f"{os.getcwd()}/mnist", type=str)  # s
 parser.add_argument('--tb_dir', default="TB", type=str)
 parser.add_argument('--tb_name', default="MNIST/ex_02", type=str)
 
-if hasattr(main, '__file__'): 
+print(main)
+if get_ipython() is None: 
     args = parser.parse_args()      
 else:
     args = parser.parse_args("")    # take defaults in Jupyter 
@@ -137,7 +143,7 @@ class MNISTModel(pl.LightningModule):
 mnist_model = MNISTModel()
 
 # Initialize a trainer
-trainer = pl.Trainer(gpus=args.gpu, max_epochs=args.epochs, progress_bar_refresh_rate=20)
+trainer = pl.Trainer(gpus=args.gpu, max_epochs=args.epochs, progress_bar_refresh_rate=20, logger=TensorBoardLogger(args.tb_dir, name=args.tb_name))
 
 # Train the model ⚡
 trainer.fit(mnist_model)
@@ -147,3 +153,4 @@ trainer.fit(mnist_model)
 
 
 
+# %%
