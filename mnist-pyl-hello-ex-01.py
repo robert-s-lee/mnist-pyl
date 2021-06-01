@@ -56,4 +56,4 @@ train_loader = DataLoader(train_ds, batch_size=args.batch_size)
 trainer = pl.Trainer(gpus=args.gpu, max_epochs=args.epochs, progress_bar_refresh_rate=20, logger=TensorBoardLogger(args.tb_dir, name=args.tb_name)) 
 
 # Train the model ⚡
-trainer.fit(mnist_model, train_loader)
+# trainer.fit(mnist_model, train_loader)
