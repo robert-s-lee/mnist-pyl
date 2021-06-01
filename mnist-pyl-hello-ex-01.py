@@ -13,6 +13,8 @@ from pytorch_lightning.metrics.functional import accuracy
 from pytorch_lightning.loggers import TensorBoardLogger
 
 from argparse import ArgumentParser
+import __main__ as main
+
 parser = ArgumentParser()
 parser.add_argument('--epochs', default=2, type=int)
 parser.add_argument('--gpu', default=0, type=int)
@@ -21,9 +23,12 @@ parser.add_argument('--lr', default=0.02, type=float)
 parser.add_argument('--batch_size', default=64, type=int)
 parser.add_argument('--data_dir', default=f"{os.getcwd()}/mnist", type=str)  # should be datastore
 parser.add_argument('--tb_dir', default="TB", type=str)
-parser.add_argument('--tb_name', default="MNINST/ex_01", type=str)
+parser.add_argument('--tb_name', default="MNIST/ex_01", type=str)
 
-args = parser.parse_args()      
+if hasattr(main, '__file__'): 
+    args = parser.parse_args()      
+else:
+    args = parser.parse_args("")    # take defaults in Jupyter 
 
 class MNISTModel(pl.LightningModule):
 
@@ -42,11 +47,6 @@ class MNISTModel(pl.LightningModule):
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=args.lr)    
 
-print(os.getcwd())
-import os
-print(args)
-os.system('df -kH')
-os.system(f"ls {args.data_dir}")
 # Init our model
 mnist_model = MNISTModel()
 

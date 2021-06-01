@@ -2,4 +2,5 @@
 data/*
 mnist/*
 TB/*
+lightning_logs/*
 .DS_Store
