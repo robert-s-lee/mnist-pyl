@@ -1,4 +1,5 @@
 *.swp
 data/*
+mnist/*
 TB/*
 .DS_Store
