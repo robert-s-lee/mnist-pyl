@@ -46,6 +46,8 @@ class MNISTModel(pl.LightningModule):
         return torch.optim.Adam(self.parameters(), lr=args.lr)    
 
 print(os.getcwd())
+import os
+os.system('df -kH')
 exit()
 # Init our model
 mnist_model = MNISTModel()
