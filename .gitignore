@@ -1,0 +1,4 @@
+*.swp
+MNIST/*
+TB/*
+.DS_Store
