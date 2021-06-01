@@ -1,6 +1,6 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
-# %%
+# %% [markdown]
 # from https://colab.research.google.com/github/PytorchLightning/pytorch-lightning/blob/master/notebooks/01-mnist-hello-world.ipynb
 
 
@@ -20,12 +20,6 @@ from pytorch_lightning.loggers import TensorBoardLogger
 
 # %%
 from argparse import ArgumentParser
-from IPython import get_ipython
-
-def is_running_from_ipython():
-    return get_ipython() is not None
-
-import __main__ as main
 
 parser = ArgumentParser()
 parser.add_argument('--epochs', default=2, type=int)
@@ -38,12 +32,7 @@ parser.add_argument('--data_dir', default=f"{os.getcwd()}/mnist", type=str)  # s
 parser.add_argument('--tb_dir', default="TB", type=str)
 parser.add_argument('--tb_name', default="MNIST/ex_02", type=str)
 
-print(main)
-if get_ipython() is None: 
-    args = parser.parse_args()      
-else:
-    args = parser.parse_args("")    # take defaults in Jupyter 
-
+args = parser.parse_args()      
 
 # %%
 class MNISTModel(pl.LightningModule):
