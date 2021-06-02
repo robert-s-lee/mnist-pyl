@@ -136,7 +136,7 @@ mnist_model = MNISTModel()
 
 # logger
 wandb_logger = WandbLogger()
-tb_logger = TensorBoardLogger(args.tb_dir, name=args.tb_name))
+tb_logger = TensorBoardLogger(args.tb_dir, name=args.tb_name)
 
 # Initialize a trainer
 trainer = pl.Trainer(gpus=args.gpu, max_epochs=args.epochs, progress_bar_refresh_rate=20, logger=[tb_logger, wandb_logger])
