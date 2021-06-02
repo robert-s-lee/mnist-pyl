@@ -1,4 +1,4 @@
-# grid train --grid_config grid-ex-02.yaml --ignore_warnings mnist-pyl-hello-ex-02.py
+# grid train --grid_config grid-ex-03.yaml mnist-pyl-hello-ex-03-hyrda.py 
 compute:
   provider:
     credentials: cc-qdfdk
