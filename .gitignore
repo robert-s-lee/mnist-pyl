@@ -5,3 +5,4 @@ TB/*
 lightning_logs/*
 .DS_Store
 .vscode/*
+outputs/*
