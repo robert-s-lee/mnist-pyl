@@ -1,4 +1,4 @@
-# grid train --config grid-ex-03.yaml mnist-pyl-hello-ex-03-hyrda.py 
+# grid train --grid_config grid-ex-01.yaml --ignore_warnings mnist-pyl-hello-ex-01.py
 compute:
   provider:
     credentials: cc-qdfdk
@@ -30,9 +30,11 @@ compute:
         - conda info --envs
         - pwd
         - df -kH
-        - ls -lia
 hyper_params:
   settings:
     strategy: random_search     # either random_search or grid_search
     trials: 1                   # only used in random_search
-    
+  params:
+    data_dir: /datastores/mnist
+    lr: uniform(0.001, 0.008, 10)
+
