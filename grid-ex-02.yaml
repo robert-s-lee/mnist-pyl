@@ -22,6 +22,7 @@ compute:
     # Actions need to be passed as one command
     # per line.
     actions:
+
       on_before_training_start:
         - conda info --envs
         - pwd
@@ -30,8 +31,8 @@ compute:
 hyper_params:
   settings:
     strategy: random_search     # either random_search or grid_search
-    trials: 1                   # only used in random_search
+    trials: 5                   # only used in random_search
   params:
     data_dir: /datastores/mnist
-    lr: uniform(0.01, 0.02, 3)
+    lr: uniform(0.01, 0.02, 10)
 
