@@ -1,4 +1,9 @@
-# grid train --grid_config grid-ex-01.yaml --ignore_warnings mnist-pyl-hello-ex-01.py
+# pip freeze > requirements.txt
+# git add .
+# git commit -m "requirements.txt for hydra"
+# git push
+# grid train --config grid-hydra-01-noparms.yaml --ignore_warnings mnist-pyl-hello-ex-01.py
+# this will fail 
 compute:
   provider:
     credentials: cc-qdfdk
@@ -22,10 +27,12 @@ compute:
     # Actions need to be passed as one command
     # per line.
     actions:
-      on_image_build:
-        - pip install hydra-core
-        - pip install hydra
-        - pip install git+https://github.com/pytorch/hydra-torch
+      # below fails with bug switch to requirements. txt
+      # failed to solve with frontend dockerfile.v0: failed to create LLB definition: Dockerfile parse error line 14: unknown instruction: 'PIP
+      # on_image_build:
+      #  - pip install hydra-core
+      #  - pip install hydra
+      #  - pip install git+https://github.com/pytorch/hydra-torch
       on_before_training_start:
         - conda info --envs
         - pwd
@@ -34,5 +41,4 @@ hyper_params:
   settings:
     strategy: random_search     # either random_search or grid_search
     trials: 1                   # only used in random_search
-  params:
 

@@ -10,7 +10,7 @@
 # git add .
 # git commit -m "requirements.txt for hydra"
 # git push
-# grid train --config grid-hydra-01.yaml --ignore_warnings minst-hydra-01.py
+# grid train --config grid-hydra-01.yaml --ignore_warnings mnist-hydra-01.py
 compute:
   provider:
     credentials: cc-qdfdk
@@ -31,6 +31,8 @@ compute:
     datastore_version: 2          # Datastore version number
     datastore_mount_dir: /datastores/mnist     # Where to mount the datastore
     use_spot: true               # If we should use spot instances
+    environment:
+      HYDRA_FULL_ERROR: 1
     # Actions need to be passed as one command
     # per line.
     actions:
@@ -46,9 +48,7 @@ compute:
         - df -kH
 hyper_params:
   settings:
-    strategy: random_search     # either random_search or grid_search
+    strategy: grid_search       # either random_search or grid_search
     trials: 1                   # only used in random_search
   params:
-    data_dir: /datastores/mnist
-    lr: uniform(0.001, 0.008, 10)
-
+    multirun: data_dir=/datastores/mnist batch_size=32,64 hydra/launcher=joblib

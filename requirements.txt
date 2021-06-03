@@ -36,6 +36,7 @@ Hydra==2.5
 hydra-configs-torch @ git+https://github.com/pytorch/hydra-torch/@60d5e42367fae297441c06220bf2f23b23225124#subdirectory=hydra-configs-torch
 hydra-configs-torchvision @ git+https://github.com/pytorch/hydra-torch/@60d5e42367fae297441c06220bf2f23b23225124#subdirectory=hydra-configs-torchvision
 hydra-core==1.0.6
+hydra-joblib-launcher==1.1.2
 hydra-torch @ git+https://github.com/pytorch/hydra-torch@60d5e42367fae297441c06220bf2f23b23225124
 idna==2.10
 importlib-metadata==2.0.0
@@ -43,6 +44,7 @@ importlib-resources==5.1.4
 ipython-genutils==0.2.0
 jedi==0.17.2
 jmespath==0.10.0
+joblib==1.0.1
 lightning-grid==0.3.71
 marshmallow==3.9.1
 marshmallow-enum==1.5.1
