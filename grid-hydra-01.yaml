@@ -1,3 +1,13 @@
+# conda create --name hydra python=3.7
+# conda activate hydra 
+pip install lightning-grid --upgrade
+pip install hydra-core
+pip install hydra
+pip install git+https://github.com/pytorch/hydra-torch
+pip freeze > requirements.txt
+# git add .
+# git commit -m "requirements.txt for hydra"
+# git push
 # grid train --config grid-hydra-01.yaml --ignore_warnings minst-hydra-01.py
 compute:
   provider:
@@ -22,10 +32,12 @@ compute:
     # Actions need to be passed as one command
     # per line.
     actions:
-      on_image_build:
-        - pip install hydra-core
-        - pip install hydra
-        - pip install git+https://github.com/pytorch/hydra-torch
+      # on_image_build:
+      # below fails with bug switch to requirements. txt
+      # failed to solve with frontend dockerfile.v0: failed to create LLB definition: Dockerfile parse error line 14: unknown instruction: 'PIP
+      #  - pip install hydra-core
+      #  - pip install hydra
+      #  - pip install git+https://github.com/pytorch/hydra-torch
       on_before_training_start:
         - conda info --envs
         - pwd
