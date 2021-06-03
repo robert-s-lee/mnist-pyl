@@ -27,7 +27,6 @@ from dataclasses import dataclass
 from hydra_configs.torch.optim import AdadeltaConf
 from hydra_configs.torch.optim.lr_scheduler import StepLRConf
 
-
 @dataclass
 class MNISTConf:
     data_dir: str = f"{os.getcwd()}/mnist"
@@ -179,3 +178,4 @@ def main(cfg):  # DIFF
 
 if __name__ == "__main__":
     main()
+# %%

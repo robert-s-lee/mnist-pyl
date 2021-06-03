@@ -6,3 +6,5 @@ lightning_logs/*
 .DS_Store
 .vscode/*
 outputs/*
+me/*
+multirun/*

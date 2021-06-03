@@ -1,10 +1,12 @@
-# conda create --name hydra python=3.7
+# clean requirements.txt
+# conda create --name hydra python=3.7 
 # conda activate hydra 
-pip install lightning-grid --upgrade
-pip install hydra-core
-pip install hydra
-pip install git+https://github.com/pytorch/hydra-torch
-pip freeze > requirements.txt
+# pip install lightning-grid --upgrade
+# pip install hydra-core
+# pip install hydra
+# pip install git+https://github.com/pytorch/hydra-torch
+# pip freeze > requirements.txt
+# 
 # git add .
 # git commit -m "requirements.txt for hydra"
 # git push
