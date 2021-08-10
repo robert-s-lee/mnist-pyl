@@ -128,7 +128,7 @@ def test(model, device, test_loader):
     )
 
 
-@hydra.main(config_name="mnistconf")
+@hydra.main(config_path=".", config_name="mnistconf")
 def main(cfg):  # DIFF
     print(cfg.pretty())
     use_cuda = not cfg.no_cuda and torch.cuda.is_available()  # DIFF

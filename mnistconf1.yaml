@@ -1,0 +1,3 @@
+defaults:
+  - override hydra/launcher: joblib  
+batch_size:     32,128
