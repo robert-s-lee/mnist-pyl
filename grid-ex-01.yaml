@@ -15,9 +15,6 @@ compute:
     scale_down_seconds: 1800
 #    distributed: false
     framework: "lightning"
-    datastore_name: mnist        # Datastore name to use 
-    datastore_version: 2          # Datastore version number
-    datastore_mount_dir: /datastores/mnist     # Where to mount the datastore
     use_spot: true               # If we should use spot instances
     # Actions need to be passed as one command
     # per line.
@@ -32,6 +29,5 @@ hyper_params:
     strategy: random_search     # either random_search or grid_search
     trials: 1                   # only used in random_search
   params:
-    data_dir: /datastores/mnist
     lr: uniform(0.001, 0.008, 10)
 
