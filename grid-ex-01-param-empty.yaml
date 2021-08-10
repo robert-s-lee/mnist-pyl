@@ -1,0 +1,32 @@
+# grid train --config grid-ex-01-noparam.yaml --ignore_warnings mnist-pyl-hello-ex-01.py
+compute:
+  provider:
+    credentials: cc-qdfdk
+    region: us-east-1
+    vendor: aws
+  train:
+    cpus: 1
+    disk_size: 200
+    gpus: 0
+    instance: t2.medium
+    max_nodes: 10
+    memory: null
+    nodes: 0
+    scale_down_seconds: 1800
+#    distributed: false
+    framework: "lightning"
+    use_spot: true               # If we should use spot instances
+    # Actions need to be passed as one command
+    # per line.
+    actions:
+      on_before_training_start:
+        - conda info --envs
+        - pwd
+        - df -kH
+
+hyper_params:
+  settings:
+    strategy: random_search     # either random_search or grid_search
+    trials: 1                   # only used in random_search
+  params:
+
